@@ -1,5 +1,7 @@
 package com.santander.bankline.api.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
@@ -10,7 +12,9 @@ public class Movimentacao {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private LocalDateTime datHora;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime dataHora;
+
     private String descricao;
     private Double valor;
 
@@ -36,12 +40,12 @@ public class Movimentacao {
         this.id = id;
     }
 
-    public LocalDateTime getDatHora() {
-        return datHora;
+    public LocalDateTime getDataHora() {
+        return dataHora;
     }
 
-    public void setDatHora(LocalDateTime datHora) {
-        this.datHora = datHora;
+    public void setDataHora(LocalDateTime dataHora) {
+        this.dataHora = dataHora;
     }
 
     public String getDescricao() {

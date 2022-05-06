@@ -22,7 +22,9 @@ public class MovimentacaoService {
     private CorrentistaRepository correntistaRepository;
 
     public List<Movimentacao> finAll(){
-        return movimentecaoRepository.findAll();
+        var a = movimentecaoRepository.findAll();
+
+        return a;
     }
 
     public void save(NovaMovimentacaoDto novaMovimentacao) {
@@ -31,7 +33,7 @@ public class MovimentacaoService {
         Double valor = novaMovimentacao.getTipo() == MovimentacaoTipo.RECEITA ?
                 novaMovimentacao.getValor() : novaMovimentacao.getValor() * -1;
 
-        movimentacao.setDatHora(LocalDateTime.now());
+        movimentacao.setDataHora(LocalDateTime.now());
         movimentacao.setDescricao(novaMovimentacao.getDescricao());
         movimentacao.setValor(valor);
         movimentacao.setTipo(novaMovimentacao.getTipo());
