@@ -17,8 +17,13 @@ public class MovimentacaoController {
     private MovimentacaoService movimentacaoService;
 
     @GetMapping
-    public List<Movimentacao> finAll() {
+    public List<Movimentacao> findAll() {
         return movimentacaoService.finAll();
+    }
+
+    @GetMapping("/{idConta}")
+    public List<Movimentacao> findById(@PathVariable("idConta") Integer idConta){
+        return movimentacaoService.findByIdConta(idConta);
     }
 
     @PostMapping

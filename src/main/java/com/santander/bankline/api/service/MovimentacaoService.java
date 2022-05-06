@@ -8,6 +8,7 @@ import com.santander.bankline.api.repository.CorrentistaRepository;
 import com.santander.bankline.api.repository.MovimentecaoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -22,9 +23,11 @@ public class MovimentacaoService {
     private CorrentistaRepository correntistaRepository;
 
     public List<Movimentacao> finAll(){
-        var a = movimentecaoRepository.findAll();
+        return  movimentecaoRepository.findAll();
+    }
 
-        return a;
+    public List<Movimentacao> findByIdConta(Integer idConta){
+        return movimentecaoRepository.findByIdConta(idConta);
     }
 
     public void save(NovaMovimentacaoDto novaMovimentacao) {
